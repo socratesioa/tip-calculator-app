@@ -1,0 +1,384 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Spacing */
+
+  --spacing-0: 0px;
+  --spacing-100: 8px;
+  --spacing-200: 16px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-600: 48px;
+  --spacing-1000: 80px;
+  --spacing-1200: 96px;
+  --spacing-1500: 120px;
+  --spacing-1600: 128px;
+
+  /* Colors */
+
+  --white: #ffffff;
+  --black: #000000;
+  --grey-600: #3d6666;
+  --grey-550: #547878;
+  --grey-500: #5e7a7d;
+  --grey-400: #7f9d9f;
+  --grey-300: #9ebbbd;
+  --grey-200: #c5e4e7;
+  --grey-50: #f3f9fa;
+  --green-900: #00474b;
+  --green-800: #085c61;
+  --green-750: #0d686d;
+  --green-400: #26c2ae;
+  --green-200: #9fe8df;
+  --orange-400: #e17052;
+}
+
+/* Typography */
+.text-preset-1 {
+  font-size: 48px;
+  line-height: 71px;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+
+.text-preset-2 {
+  font-size: 32px;
+  line-height: 47px;
+  letter-spacing: -0.67px;
+  font-weight: 700;
+}
+
+.text-preset-3 {
+  font-size: 24px;
+  line-height: 36px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.text-preset-4 {
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.text-preset-5 {
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+.text-preset-6 {
+  font-size: 13px;
+  line-height: 19px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: var(--grey-200);
+}
+
+.logo {
+  display: block;
+  margin: auto;
+  padding: 50px 0 40px 0;
+}
+
+.calculator-container {
+  background-color: var(--white);
+  padding: 32px 24px;
+  border-radius: 25px 25px 0 0;
+}
+
+.results-container {
+  background-color: var(--green-900);
+  margin-top: var(--spacing-400);
+  border-radius: 15px;
+  padding: var(--spacing-300);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-400);
+}
+
+.amounts {
+  display: grid;
+  gap: var(--spacing-300);
+}
+
+.tip-amount-row,
+.total-amount-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+}
+
+.line-break {
+  display: block;
+  color: var(--grey-400);
+}
+
+.result {
+  color: var(--green-400);
+}
+
+.reset-button-container {
+  display: grid;
+}
+
+#reset-button {
+  background-color: var(--green-400);
+  color: var(--green-900);
+  border: none;
+  padding: var(--spacing-100) var(--spacing-400);
+  text-transform: uppercase;
+  border-radius: 5px;
+  height: 48px;
+  cursor: pointer;
+}
+
+#reset-button:hover {
+  background-color: var(--green-200);
+}
+
+/* FORM STYLES */
+
+#tip-form {
+  display: grid;
+  gap: var(--spacing-400);
+}
+
+#tip-form > div {
+  display: grid;
+  gap: var(--spacing-100);
+}
+
+label,
+legend {
+  color: var(--grey-500);
+}
+
+/* Remove spinner arrows in Chrome, Safari, Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+/* Remove spinner arrows in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: var(--spacing-200);
+}
+
+input {
+  width: 100%;
+  padding: var(--spacing-100) var(--spacing-200);
+  text-align: right;
+  border: none;
+  background-color: var(--grey-50);
+  border-radius: 5px;
+  color: var(--green-900);
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input:focus {
+  outline: 2px solid var(--green-400);
+}
+
+input::placeholder {
+  text-align: right;
+  color: hsla(183, 100%, 15%, 0.35);
+}
+
+fieldset {
+  border: none;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+input[type="radio"]:focus-visible + .tip-tab {
+  outline: 2px solid var(--green-400);
+  outline-offset: 2px;
+}
+
+.tip-selector {
+  margin-bottom: var(--spacing-100);
+}
+
+.tip-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-200);
+  width: 100%;
+}
+
+.tip-tab {
+  width: 100%;
+  display: inline-flex;
+  justify-content: center;
+  padding: 6px 0;
+  color: var(--white);
+  background-color: var(--green-900);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+}
+
+.tip-tab:hover {
+  background-color: var(--green-200);
+  color: var(--green-900);
+}
+
+input[type="radio"]:checked + .tip-tab {
+  background-color: var(--green-400);
+  color: var(--green-900);
+}
+
+.custom-tip-wrapper {
+  width: 100%;
+}
+
+.tip-tab-custom {
+  background-color: var(--grey-50);
+  color: var(--grey-550);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 6px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.tip-tab-custom:focus-visible {
+  outline: 2px solid var(--green-400);
+  outline-offset: 2px;
+}
+
+.custom-tip-input {
+  font-family: inherit;
+  display: none;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  border-radius: 5px;
+  border: none;
+  text-align: right;
+  color: var(--green-900);
+}
+
+input#tip-custom:checked + .custom-tip-wrapper .tip-tab-custom {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+input#tip-custom:checked + .custom-tip-wrapper .custom-tip-input {
+  display: block;
+}
+
+.label-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error-message {
+  color: var(--orange-400);
+}
+
+.input-error {
+  border: 2px solid var(--orange-400);
+  outline: none;
+}
+
+.input-error:focus-visible {
+  outline: none;
+}
+
+#reset-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+@media (min-width: 600px) {
+  .calculator-container {
+    max-width: 608px;
+    width: 100%;
+    padding: var(--spacing-600) var(--spacing-1000);
+    border-radius: 25px;
+    margin: auto;
+    margin-bottom: var(--spacing-1000);
+  }
+
+  .results-container {
+    gap: var(--spacing-200);
+    padding: 43px 47.5px;
+  }
+
+  .amounts {
+    gap: var(--spacing-100);
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .calculator-container {
+    max-width: 920px;
+    width: 100%;
+    padding: var(--spacing-400);
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-600);
+  }
+
+  .results-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 37.5px 40px;
+  }
+
+  .amounts {
+    display: grid;
+    gap: var(--spacing-300);
+  }
+}

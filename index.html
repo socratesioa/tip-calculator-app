@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Tip calculator app</title>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <img
+          src="./images/logo.svg"
+          class="logo"
+          alt="Splitter Tip calculator App Logo"
+        />
+      </header>
+      <main>
+        <div class="calculator-container">
+          <form id="tip-form">
+            <div>
+              <div class="label-group">
+                <label for="bill-amount" class="text-preset-5">Bill</label>
+                <span
+                  class="error-message text-preset-5"
+                  id="bill-error"
+                ></span>
+              </div>
+
+              <div class="input-wrapper">
+                <img
+                  src="./images/icon-dollar.svg"
+                  class="input-icon"
+                  alt="Dollar Icon"
+                />
+
+                <input
+                  class="text-preset-3"
+                  type="number"
+                  id="bill-amount"
+                  name="bill-amount"
+                  step="0.01"
+                  min="0"
+                  placeholder="0"
+                  required
+                />
+              </div>
+            </div>
+
+            <fieldset>
+              <legend class="text-preset-5 tip-selector">Select Tip %</legend>
+              <div class="tip-options">
+                <input type="radio" name="tip" id="tip-5" value="5" />
+                <label for="tip-5" class="tip-tab text-preset-3"> 5% </label>
+                <input type="radio" name="tip" id="tip-10" value="10" />
+                <label for="tip-10" class="tip-tab text-preset-3"> 10% </label>
+                <input type="radio" name="tip" id="tip-15" value="15" />
+                <label for="tip-15" class="tip-tab text-preset-3"> 15% </label>
+                <input type="radio" name="tip" id="tip-25" value="25" />
+                <label for="tip-25" class="tip-tab text-preset-3"> 25% </label>
+                <input type="radio" name="tip" id="tip-50" value="50" />
+                <label for="tip-50" class="tip-tab text-preset-3"> 50% </label>
+                <input type="radio" name="tip" id="tip-custom" value="custom" />
+                <div class="custom-tip-wrapper">
+                  <label for="tip-custom" class="tip-tab-custom text-preset-3"
+                    >Custom</label
+                  >
+                  <input
+                    type="number"
+                    id="custom-tip"
+                    name="custom-tip"
+                    min="0"
+                    step="0.1"
+                    class="custom-tip-input text-preset-3"
+                  />
+                </div>
+              </div>
+            </fieldset>
+            <div>
+              <div class="label-group">
+                <label for="num-people" class="text-preset-5"
+                  >Number of People</label
+                >
+                <span
+                  class="error-message text-preset-5"
+                  id="people-error"
+                ></span>
+              </div>
+
+              <div class="input-wrapper">
+                <img
+                  src="./images/icon-person.svg"
+                  class="input-icon"
+                  alt="Person Icon"
+                />
+
+                <input
+                  class="text-preset-3"
+                  type="number"
+                  id="num-people"
+                  name="num-people"
+                  min="1"
+                  step="1"
+                  pattern="\d*"
+                  placeholder="0"
+                  required
+                />
+              </div>
+            </div>
+          </form>
+          <div class="results-container">
+            <div class="amounts">
+              <div class="tip-amount-row">
+                <p class="text-preset-5">
+                  Tip Amount
+                  <span class="line-break text-preset-6">/person</span>
+                </p>
+                <span class="result text-preset-2 tip-result">$0.00</span>
+              </div>
+              <div class="total-amount-row">
+                <p class="text-preset-5">
+                  Total <span class="line-break text-preset-6">/person</span>
+                </p>
+                <span class="result text-preset-2 total-result">$0.00</span>
+              </div>
+            </div>
+
+            <div class="reset-button-container">
+              <button
+                id="reset-button"
+                type="button"
+                class="text-preset-4"
+                disabled
+              >
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="./tip.js"></script>
+  </body>
+</html>
